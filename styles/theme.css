@@ -1,0 +1,50 @@
+/* ============================================================
+   THEME.CSS — Visual identity / Pixel RPG Indie Style
+   Swap this file to change the entire look of the portfolio.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+:root {
+  /* --- COLOR PALETTE --- */
+  --color-bg:          #0d0d1a;
+  --color-surface:     #1a1a2e;
+  --color-surface-alt: #16213e;
+  --color-border:      #2e2e5e;
+  --color-border-bright: #4a4a8a;
+
+  --color-primary:     #f7d51d;   /* pixel yellow — main accent */
+  --color-primary-dim: #9e8800;   /* shadow / pressed state */
+  --color-accent:      #e43b44;   /* pixel red — danger / highlight */
+  --color-teal:        #3fbcb4;   /* subheadings, links */
+  --color-purple:      #7b5ea7;   /* tags, badges */
+  --color-purple-dim:  #4a3870;
+
+  --color-text:        #e8e8d0;   /* primary text */
+  --color-text-muted:  #6c6c8a;   /* secondary / placeholder */
+  --color-text-dark:   #0d0d1a;   /* text on bright backgrounds */
+
+  /* --- TYPOGRAPHY --- */
+  --font-pixel: 'Press Start 2P', monospace;
+  --font-body:  'VT323', monospace;
+  --font-code:  'Courier New', Courier, monospace;
+
+  /* --- PIXEL SHADOW DEPTH --- */
+  --shadow-sm: 3px 3px 0px var(--color-border);
+  --shadow-md: 4px 4px 0px var(--color-primary-dim);
+  --shadow-lg: 6px 6px 0px var(--color-border);
+
+  /* --- SPACING SCALE (pixel-friendly multiples of 4) --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* --- TRANSITIONS --- */
+  --transition-fast: 80ms steps(2);
+  --transition-mid:  150ms steps(3);
+}

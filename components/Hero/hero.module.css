@@ -1,0 +1,236 @@
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* subtle pixel grid background */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--color-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--color-border) 1px, transparent 1px);
+  background-size: 32px 32px;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-7) 0;
+}
+
+/* --- AVATAR --- */
+.avatarWrap {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.avatarFrame {
+  width: 160px;
+  border: 3px solid var(--color-border);
+  background: var(--color-surface);
+  position: relative;
+  box-shadow: 6px 6px 0 var(--color-border);
+}
+
+.avatarPlaceholder {
+  width: 100%;
+  aspect-ratio: 1;
+  padding: var(--space-3);
+}
+
+.avatarLabel {
+  font-family: var(--font-pixel);
+  font-size: 6px;
+  color: var(--color-primary);
+  text-align: center;
+  padding: var(--space-2);
+  border-top: 2px solid var(--color-border);
+  background: var(--color-surface-alt);
+  letter-spacing: 2px;
+}
+
+/* --- STAT BOX --- */
+.statBox {
+  width: 160px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  box-shadow: 4px 4px 0 var(--color-border);
+}
+
+.statRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-pixel);
+  font-size: 6px;
+  color: var(--color-text-muted);
+}
+
+.statVal {
+  color: var(--color-primary);
+}
+
+.xpBar {
+  flex: 1;
+  height: 6px;
+  background: var(--color-border);
+  margin-left: var(--space-2);
+}
+
+.xpFill {
+  height: 100%;
+  background: var(--color-teal);
+}
+
+/* --- TEXT --- */
+.textContent {
+  flex: 1;
+}
+
+.greeting {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: var(--color-text-muted);
+  letter-spacing: 2px;
+  margin-bottom: var(--space-3);
+}
+
+.name {
+  font-family: var(--font-pixel);
+  font-size: clamp(14px, 2.5vw, 22px);
+  color: var(--color-primary);
+  line-height: 1.6;
+  margin-bottom: var(--space-4);
+  text-shadow: 4px 4px 0 var(--color-primary-dim);
+}
+
+.typewriterRow {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  margin-bottom: var(--space-5);
+  min-height: 28px;
+}
+
+.typewriter {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: var(--color-teal);
+  letter-spacing: 1px;
+}
+
+.cursor {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  color: var(--color-teal);
+}
+
+.bio {
+  font-family: var(--font-body);
+  font-size: 20px;
+  color: var(--color-text);
+  max-width: 520px;
+  margin-bottom: var(--space-6);
+  line-height: 1.7;
+}
+
+/* --- BUTTONS --- */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+}
+
+.btnPrimary,
+.btnSecondary {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  padding: var(--space-3) var(--space-4);
+  position: relative;
+  letter-spacing: 1px;
+  transition: transform var(--transition-fast);
+}
+
+.btnPrimary {
+  background: var(--color-primary);
+  color: var(--color-text-dark);
+  box-shadow: 4px 4px 0 var(--color-primary-dim);
+}
+
+.btnPrimary:hover {
+  color: var(--color-text-dark);
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0 var(--color-primary-dim);
+}
+
+.btnSecondary {
+  background: transparent;
+  color: var(--color-teal);
+  border: 2px solid var(--color-teal);
+  box-shadow: 4px 4px 0 var(--color-border);
+}
+
+.btnSecondary:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: translate(-2px, -2px);
+}
+
+/* --- SOCIALS --- */
+.socials {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.socialLink {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: var(--color-text-muted);
+  letter-spacing: 2px;
+}
+
+.socialLink:hover {
+  color: var(--color-primary);
+}
+
+.divider {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: var(--color-border-bright);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .bio {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .actions,
+  .socials {
+    justify-content: center;
+  }
+}

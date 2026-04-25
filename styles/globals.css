@@ -1,0 +1,112 @@
+/* ============================================================
+   GLOBALS.CSS — Import order matters. Theme first, layout second.
+   ============================================================ */
+
+@import './theme.css';
+@import './layout.css';
+
+/* --- BASE BODY --- */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.6;
+  image-rendering: pixelated;
+}
+
+/* --- HEADINGS --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-pixel);
+  line-height: 1.5;
+  color: var(--color-primary);
+}
+
+h1 { font-size: clamp(14px, 2vw, 20px); }
+h2 { font-size: clamp(11px, 1.5vw, 15px); }
+h3 { font-size: clamp(9px, 1.2vw, 12px); }
+
+p {
+  font-family: var(--font-body);
+  font-size: 20px;
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-teal);
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-primary);
+}
+
+/* --- SCROLLBAR --- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border-bright);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary);
+}
+
+/* --- SELECTION --- */
+::selection {
+  background: var(--color-primary);
+  color: var(--color-text-dark);
+}
+
+/* --- SCANLINE EFFECT (subtle CRT overlay) --- */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 0, 0, 0.06) 3px,
+    rgba(0, 0, 0, 0.06) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
+}
+
+/* --- PIXEL CURSOR --- */
+* {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16'%3E%3Crect x='0' y='0' width='4' height='4' fill='%23f7d51d'/%3E%3Crect x='4' y='4' width='4' height='4' fill='%23f7d51d'/%3E%3C/svg%3E") 0 0, auto;
+}
+
+/* --- ANIMATIONS --- */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes flicker {
+  0%, 95%, 100% { opacity: 1; }
+  96%           { opacity: 0.6; }
+  98%           { opacity: 0.8; }
+}
+
+@keyframes marchingAnts {
+  to { stroke-dashoffset: -16; }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.4s steps(4) both;
+}
+
+.animate-blink {
+  animation: blink 1s steps(1) infinite;
+}

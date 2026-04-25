@@ -1,0 +1,84 @@
+.section {
+  padding: var(--space-7) 0;
+  background: var(--color-surface);
+  border-top: 2px solid var(--color-border);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-7);
+  text-align: center;
+}
+
+/* --- PIXEL DOC DECO --- */
+.pixelDoc {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  opacity: 0.25;
+}
+
+.docLine {
+  height: 4px;
+  background: var(--color-primary);
+}
+
+/* --- CONTENT --- */
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.label {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: var(--color-teal);
+  letter-spacing: 2px;
+}
+
+.title {
+  font-family: var(--font-pixel);
+  font-size: clamp(12px, 2vw, 18px);
+  color: var(--color-primary);
+  text-shadow: 4px 4px 0 var(--color-primary-dim);
+}
+
+.sub {
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: var(--color-text-muted);
+}
+
+.downloadBtn {
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-primary);
+  color: var(--color-text-dark);
+  box-shadow: 5px 5px 0 var(--color-primary-dim);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  letter-spacing: 1px;
+}
+
+.downloadBtn:hover {
+  color: var(--color-text-dark);
+  transform: translate(-3px, -3px);
+  box-shadow: 8px 8px 0 var(--color-primary-dim);
+}
+
+.note {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+  .pixelDoc {
+    display: none;
+  }
+}
