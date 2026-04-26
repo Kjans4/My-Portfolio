@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "../styles/globals.css";
 
 export const metadata: Metadata = {
-  title: "Juan dela Cruz | IT Graduate Portfolio",        // [REPLACE] Your name
+  title: "Keshier Jan Pialan | IT Graduate Portfolio",        // [REPLACE] Your name
   description: "Full-Stack Developer & IT Graduate based in Davao City, Philippines.", // [REPLACE]
   openGraph: {
-    title: "Juan dela Cruz | Portfolio",
+    title: "Keshier Jan Pialan | Portfolio",
     description: "Full-Stack Developer & IT Graduate",
-    url: "https://juandelacruz.vercel.app",              // [REPLACE]
-    siteName: "Juan dela Cruz Portfolio",
+    url: "https://keshierjanpilan.vercel.app",              // [REPLACE]
+    siteName: "KeshierJan Portfolio",
     locale: "en_PH",
     type: "website",
   },
