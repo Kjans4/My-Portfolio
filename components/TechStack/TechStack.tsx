@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { techStack } from "@/data/placeholder";
 import styles from "./TechStack.module.css";
 
@@ -21,10 +22,13 @@ export default function TechStack() {
                 .map((tech) => (
                   <div key={tech.name} className={styles.techCard}>
                     <div className={styles.iconBox}>
-                      {/* Replace with <Image src={tech.icon} ...> when you have icon files */}
-                      <span className={styles.iconFallback}>
-                        {tech.name.slice(0, 2).toUpperCase()}
-                      </span>
+                      <Image
+                        src={tech.icon}
+                        alt={tech.name}
+                        width={32}
+                        height={32}
+                        style={{ imageRendering: "pixelated" }}
+                      />
                     </div>
                     <span className={styles.techName}>{tech.name}</span>
                   </div>

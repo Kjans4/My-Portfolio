@@ -1,0 +1,201 @@
+.sectionTitle {
+  font-family: var(--font-pixel);
+  font-size: 12px;
+  color: var(--color-primary);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: var(--space-7);
+  align-items: start;
+}
+
+/* --- BIO CARD --- */
+.bioCard {
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.bioLabel {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: var(--color-teal);
+  letter-spacing: 1px;
+}
+
+.bioText {
+  font-family: var(--font-body);
+  font-size: 20px;
+  color: var(--color-text);
+  line-height: 1.7;
+}
+
+/* --- BIO META --- */
+.bioMeta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  border-top: 2px solid var(--color-border);
+  padding-top: var(--space-3);
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: var(--color-text-muted);
+}
+
+.metaIcon {
+  font-size: 14px;
+  color: var(--color-primary);
+  width: 20px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.metaLink {
+  color: var(--color-teal);
+  font-family: var(--font-body);
+  font-size: 18px;
+  transition: color var(--transition-fast);
+}
+
+.metaLink:hover {
+  color: var(--color-primary);
+}
+
+/* --- TIMELINE --- */
+.timelineCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+}
+
+.timelineItem {
+  display: flex;
+  gap: var(--space-4);
+}
+
+/* --- CONNECTOR --- */
+.connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  background: var(--color-primary);
+  border: 2px solid var(--color-primary-dim);
+  flex-shrink: 0;
+  margin-top: var(--space-2);
+}
+
+.line {
+  width: 2px;
+  flex: 1;
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--color-border) 0,
+    var(--color-border) 6px,
+    transparent 6px,
+    transparent 12px
+  );
+  min-height: var(--space-5);
+  margin: var(--space-1) 0;
+}
+
+/* --- EDU CARD --- */
+.eduCard {
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  padding: var(--space-4);
+  flex: 1;
+  margin-bottom: var(--space-4);
+  box-shadow: var(--shadow-sm);
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.eduCard:hover {
+  border-color: var(--color-primary);
+  transform: translate(-2px, -2px);
+  box-shadow: var(--shadow-md);
+}
+
+.eduHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-3);
+}
+
+.eduLogoPlaceholder {
+  width: 44px;
+  height: 44px;
+  background: var(--color-surface-alt);
+  border: 2px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-teal);
+  flex-shrink: 0;
+  /* Replace this with <Image> when you have the school logo */
+}
+
+.eduSchool {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-primary);
+  line-height: 1.6;
+}
+
+.eduYear {
+  font-family: var(--font-pixel);
+  font-size: 6px;
+  color: var(--color-text-muted);
+  margin-top: var(--space-1);
+  letter-spacing: 1px;
+}
+
+.eduDegree {
+  font-family: var(--font-body);
+  font-size: 19px;
+  color: var(--color-text);
+  line-height: 1.5;
+  margin-bottom: var(--space-2);
+}
+
+.honorsBadge {
+  display: inline-block;
+  font-family: var(--font-pixel);
+  font-size: 6px;
+  padding: 3px 8px;
+  background: var(--color-primary);
+  color: var(--color-text-dark);
+  letter-spacing: 1px;
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+}

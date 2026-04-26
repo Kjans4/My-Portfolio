@@ -1,0 +1,118 @@
+.screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s steps(5);
+}
+
+.fadeOut {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-5);
+  width: min(480px, 90vw);
+}
+
+/* --- LOGO --- */
+.logo {
+  font-family: var(--font-pixel);
+  font-size: clamp(10px, 2vw, 14px);
+  color: var(--color-primary);
+  letter-spacing: 2px;
+  margin-bottom: var(--space-2);
+}
+
+.bracket {
+  color: var(--color-accent);
+}
+
+.logoText {
+  animation: flicker 3s steps(1) infinite;
+}
+
+@keyframes flicker {
+  0%, 94%, 100% { opacity: 1; }
+  95%            { opacity: 0.4; }
+  97%            { opacity: 0.8; }
+}
+
+/* --- TERMINAL --- */
+.terminal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  min-height: 140px;
+}
+
+.line {
+  font-family: var(--font-pixel);
+  font-size: 8px;
+  color: var(--color-teal);
+  letter-spacing: 1px;
+  line-height: 2;
+  animation: fadeIn 0.1s steps(1) both;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.prompt {
+  color: var(--color-primary);
+}
+
+.cursor {
+  animation: blink 0.6s steps(1) infinite;
+  color: var(--color-teal);
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* --- PROGRESS BAR --- */
+.barWrap {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  width: 100%;
+}
+
+.barTrack {
+  flex: 1;
+  height: 12px;
+  background: var(--color-surface);
+  border: 2px solid var(--color-border);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--color-primary) 0,
+    var(--color-primary) 10px,
+    var(--color-primary-dim) 10px,
+    var(--color-primary-dim) 12px
+  );
+  transition: width 0.3s steps(6);
+}
+
+.barPct {
+  font-family: var(--font-pixel);
+  font-size: 7px;
+  color: var(--color-primary);
+  min-width: 36px;
+  text-align: right;
+}

@@ -36,10 +36,6 @@ export default function Contact() {
                 <span className={styles.contactIcon}>⌨</span>
                 <span>GitHub</span>
               </a>
-              <a href={personal.linkedin} target="_blank" rel="noopener noreferrer" className={styles.contactItem}>
-                <span className={styles.contactIcon}>◈</span>
-                <span>LinkedIn</span>
-              </a>
             </div>
           </div>
 
@@ -60,7 +56,7 @@ export default function Contact() {
                       name="name"
                       type="text"
                       required
-                      placeholder="Juan dela Cruz"
+                      placeholder="John Doe"
                       className={styles.input}
                       onFocus={() => setFocused("name")}
                       onBlur={() => setFocused(null)}
@@ -75,7 +71,7 @@ export default function Contact() {
                       name="email"
                       type="email"
                       required
-                      placeholder="you@email.com"
+                      placeholder="johndoe@email.com"
                       className={styles.input}
                       onFocus={() => setFocused("email")}
                       onBlur={() => setFocused(null)}

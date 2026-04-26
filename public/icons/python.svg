@@ -1,0 +1,29 @@
+<svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" style="image-rendering:pixelated">
+  <!-- top snake head (blue) -->
+  <rect x="10" y="2"  width="12" height="2"  fill="#3776ab"/>
+  <rect x="8"  y="4"  width="2"  height="2"  fill="#3776ab"/>
+  <rect x="6"  y="6"  width="2"  height="8"  fill="#3776ab"/>
+  <rect x="8"  y="14" width="8"  height="2"  fill="#3776ab"/>
+  <rect x="8"  y="6"  width="8"  height="8"  fill="#3776ab"/>
+  <rect x="16" y="6"  width="6"  height="2"  fill="#3776ab"/>
+  <rect x="22" y="6"  width="2"  height="8"  fill="#3776ab"/>
+  <rect x="16" y="12" width="6"  height="2"  fill="#3776ab"/>
+  <!-- top eye -->
+  <rect x="18" y="4"  width="2"  height="2"  fill="#fff"/>
+  <!-- top notch -->
+  <rect x="14" y="8"  width="2"  height="2"  fill="#1a1a2e"/>
+
+  <!-- bottom snake body (yellow) -->
+  <rect x="10" y="16" width="6"  height="2"  fill="#ffd43b"/>
+  <rect x="8"  y="18" width="2"  height="8"  fill="#ffd43b"/>
+  <rect x="10" y="24" width="8"  height="6"  fill="#ffd43b"/>
+  <rect x="8"  y="24" width="4"  height="2"  fill="#ffd43b"/>
+  <rect x="16" y="16" width="8"  height="8"  fill="#ffd43b"/>
+  <rect x="22" y="18" width="2"  height="2"  fill="#ffd43b"/>
+  <rect x="18" y="26" width="6"  height="2"  fill="#ffd43b"/>
+  <rect x="22" y="22" width="2"  height="6"  fill="#ffd43b"/>
+  <!-- bottom eye -->
+  <rect x="12" y="26" width="2"  height="2"  fill="#fff"/>
+  <!-- bottom notch -->
+  <rect x="16" y="20" width="2"  height="2"  fill="#1a1a2e"/>
+</svg>
