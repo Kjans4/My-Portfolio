@@ -6,7 +6,7 @@ import { personal } from "@/data/placeholder";
 import styles from "./Contact.module.css";
 
 export default function Contact() {
-  // [REPLACE] "YOUR_FORM_ID" with your Formspree form ID from formspree.io
+  // [REPLACE] "YOUR_FORM_ID" with your Formspree form ID
   const [state, handleSubmit] = useForm("YOUR_FORM_ID");
   const [focused, setFocused] = useState<string | null>(null);
 
@@ -57,6 +57,7 @@ export default function Contact() {
                       type="text"
                       required
                       placeholder="John Doe"
+                      suppressHydrationWarning // Added to fix fdprocessedid mismatch
                       className={styles.input}
                       onFocus={() => setFocused("name")}
                       onBlur={() => setFocused(null)}
@@ -72,6 +73,7 @@ export default function Contact() {
                       type="email"
                       required
                       placeholder="johndoe@email.com"
+                      suppressHydrationWarning // Added to fix fdprocessedid mismatch
                       className={styles.input}
                       onFocus={() => setFocused("email")}
                       onBlur={() => setFocused(null)}
@@ -87,6 +89,7 @@ export default function Contact() {
                     name="subject"
                     type="text"
                     placeholder="Project proposal / Job offer / Hello!"
+                    suppressHydrationWarning // Added to fix fdprocessedid mismatch
                     className={styles.input}
                     onFocus={() => setFocused("subject")}
                     onBlur={() => setFocused(null)}
@@ -101,6 +104,7 @@ export default function Contact() {
                     required
                     rows={5}
                     placeholder="Type your message here..."
+                    suppressHydrationWarning // Added to fix fdprocessedid mismatch
                     className={styles.textarea}
                     onFocus={() => setFocused("message")}
                     onBlur={() => setFocused(null)}
@@ -111,6 +115,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={state.submitting}
+                  suppressHydrationWarning // Added to fix fdprocessedid mismatch
                   className={styles.submitBtn}
                 >
                   {state.submitting ? "[ SENDING... ]" : "[ SEND MESSAGE ]"}

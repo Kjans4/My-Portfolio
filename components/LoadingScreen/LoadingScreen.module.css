@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  /* Opacity now driven by Anime.js — keep transition as fallback only */
   transition: opacity 0.5s steps(5);
 }
 
@@ -29,6 +30,7 @@
   color: var(--color-primary);
   letter-spacing: 2px;
   margin-bottom: var(--space-2);
+  /* opacity starts at 0 — Anime.js flickers it in */
 }
 
 .bracket {
@@ -36,7 +38,8 @@
 }
 
 .logoText {
-  animation: flicker 3s steps(1) infinite;
+  /* Idle flicker only kicks in after Anime.js finishes the intro */
+  animation: flicker 4s steps(1) infinite 1s;
 }
 
 @keyframes flicker {
@@ -59,12 +62,12 @@
   color: var(--color-teal);
   letter-spacing: 1px;
   line-height: 2;
-  animation: fadeIn 0.1s steps(1) both;
+  /* No fadeIn animation needed — characters appear via JS typewriter */
 }
 
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+/* "READY." line — Anime.js pulses this to yellow */
+.lineReady {
+  color: var(--color-teal); /* starting color; Anime.js takes over */
 }
 
 .prompt {
@@ -106,7 +109,8 @@
     var(--color-primary-dim) 10px,
     var(--color-primary-dim) 12px
   );
-  transition: width 0.3s steps(6);
+  /* Width driven by React state updated by Anime.js */
+  transition: width 0.15s steps(4);
 }
 
 .barPct {
