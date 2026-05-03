@@ -1,7 +1,14 @@
+"use client";
+
+import { useRef } from "react";
 import { projects } from "@/data/placeholder";
+import { useStaggerReveal } from "@/hooks/Usetaggerreveal";
 import styles from "./Projects.module.css";
 
 export default function Projects() {
+  const gridRef = useRef<HTMLDivElement>(null);
+  useStaggerReveal(gridRef);
+
   return (
     <section className="section" id="projects">
       <div className="page-wrapper">
@@ -10,10 +17,12 @@ export default function Projects() {
           <h2 className={styles.sectionTitle}>PROJECTS</h2>
         </div>
 
-        <div className={styles.grid}>
+        <div ref={gridRef} className={styles.grid}>
           {projects.map((project, i) => (
-            <div key={project.id} className={`${styles.card} ${project.featured ? styles.featured : ""}`}>
-
+            <div
+              key={project.id}
+              className={`${styles.card} ${project.featured ? styles.featured : ""} ${styles.revealItem}`}
+            >
               {/* Thumbnail placeholder */}
               <div className={styles.thumbnail}>
                 <div className={styles.thumbnailInner}>
@@ -24,8 +33,6 @@ export default function Projects() {
                     <span className={styles.featuredBadge}>★ FEATURED</span>
                   )}
                 </div>
-                {/* Replace below with <Image> when you have real thumbnails */}
-                {/* <Image src={project.thumbnail} alt={project.title} fill objectFit="cover" /> */}
               </div>
 
               <div className={styles.cardBody}>

@@ -127,3 +127,7 @@
   border-color: var(--color-primary);
   color: var(--color-primary);
 }
+/* --- STAGGER REVEAL --- */
+.revealItem {
+  opacity: 0;
+}

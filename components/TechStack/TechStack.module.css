@@ -65,3 +65,7 @@
   letter-spacing: 1px;
   text-align: center;
 }
+/* --- STAGGER REVEAL --- */
+.revealItem {
+  opacity: 0;
+}

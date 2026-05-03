@@ -1,7 +1,14 @@
+"use client";
+
+import { useRef } from "react";
 import { certificates } from "@/data/placeholder";
+import { useStaggerReveal } from "@/hooks/Usetaggerreveal";
 import styles from "./Certificates.module.css";
 
 export default function Certificates() {
+  const gridRef = useRef<HTMLDivElement>(null);
+  useStaggerReveal(gridRef);
+
   return (
     <section className="section" id="certs">
       <div className="page-wrapper">
@@ -10,9 +17,9 @@ export default function Certificates() {
           <h2 className={styles.sectionTitle}>CERTIFICATES</h2>
         </div>
 
-        <div className={styles.grid}>
+        <div ref={gridRef} className={styles.grid}>
           {certificates.map((cert) => (
-            <div key={cert.id} className={styles.card}>
+            <div key={cert.id} className={`${styles.card} ${styles.revealItem}`}>
 
               {/* Badge area */}
               <div className={styles.badgeArea}>
@@ -27,7 +34,6 @@ export default function Certificates() {
                 <p className={styles.certDate}>ISSUED: {cert.date.toUpperCase()}</p>
 
                 <div className={styles.actions}>
-                  {/* Download PDF */}
                   <a
                     href={cert.pdfFile}
                     download
@@ -35,8 +41,6 @@ export default function Certificates() {
                   >
                     [ ↓ DOWNLOAD PDF ]
                   </a>
-
-                  {/* Verify link (optional) */}
                   {cert.credentialUrl && (
                     <a
                       href={cert.credentialUrl}

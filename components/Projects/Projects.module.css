@@ -149,3 +149,8 @@
   border-color: var(--color-accent);
   color: var(--color-accent);
 }
+/* --- STAGGER REVEAL --- */
+/* Initial hidden state — Anime.js overrides on scroll-into-view */
+.revealItem {
+  opacity: 0;
+}
