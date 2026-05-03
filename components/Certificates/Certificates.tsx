@@ -2,7 +2,8 @@
 
 import { useRef } from "react";
 import { certificates } from "@/data/placeholder";
-import { useStaggerReveal } from "@/hooks/Usetaggerreveal";
+import { useStaggerReveal } from "@/hooks/useStaggerReveal";
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import styles from "./Certificates.module.css";
 
 export default function Certificates() {
@@ -13,9 +14,7 @@ export default function Certificates() {
     <section className="section" id="certs">
       <div className="page-wrapper">
 
-        <div className="section-title-row">
-          <h2 className={styles.sectionTitle}>CERTIFICATES</h2>
-        </div>
+        <SectionTitle title="CERTIFICATES" className={styles.sectionTitle} />
 
         <div ref={gridRef} className={styles.grid}>
           {certificates.map((cert) => (

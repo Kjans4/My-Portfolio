@@ -2,7 +2,8 @@
 
 import { useRef } from "react";
 import { projects } from "@/data/placeholder";
-import { useStaggerReveal } from "@/hooks/Usetaggerreveal";
+import { useStaggerReveal } from "@/hooks/useStaggerReveal";
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import styles from "./Projects.module.css";
 
 export default function Projects() {
@@ -13,9 +14,7 @@ export default function Projects() {
     <section className="section" id="projects">
       <div className="page-wrapper">
 
-        <div className="section-title-row">
-          <h2 className={styles.sectionTitle}>PROJECTS</h2>
-        </div>
+        <SectionTitle title="PROJECTS" className={styles.sectionTitle} />
 
         <div ref={gridRef} className={styles.grid}>
           {projects.map((project, i) => (

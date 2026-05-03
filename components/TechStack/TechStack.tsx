@@ -3,7 +3,8 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { techStack } from "@/data/placeholder";
-import { useStaggerReveal } from "@/hooks/Usetaggerreveal";
+import { useStaggerReveal } from "@/hooks/useStaggerReveal";
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import styles from "./TechStack.module.css";
 
 const categories = ["Frontend", "Backend", "Database"];
@@ -43,9 +44,7 @@ export default function TechStack() {
     <section className="section" id="stack">
       <div className="page-wrapper">
 
-        <div className="section-title-row">
-          <h2 className={styles.sectionTitle}>TECH STACK</h2>
-        </div>
+        <SectionTitle title="TECH STACK" className={styles.sectionTitle} />
 
         {categories.map((cat) => (
           <CategoryBlock key={cat} cat={cat} />

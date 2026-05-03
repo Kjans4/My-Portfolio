@@ -1,4 +1,7 @@
+"use client";
+
 import { education, personal } from "@/data/placeholder";
+import SectionTitle from "@/components/SectionTitle/SectionTitle";
 import styles from "./Education.module.css";
 
 export default function Education() {
@@ -6,9 +9,7 @@ export default function Education() {
     <section className="section" id="about">
       <div className="page-wrapper">
 
-        <div className="section-title-row">
-          <h2 className={styles.sectionTitle}>ABOUT & EDUCATION</h2>
-        </div>
+        <SectionTitle title="ABOUT & EDUCATION" className={styles.sectionTitle} />
 
         <div className={styles.inner}>
 
