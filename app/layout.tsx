@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
+import PixelCursor from "@/components/PixelCursor/PixelCursor";
+import LoadingScreen from "@/components/LoadingScreen/LoadingScreen";
+import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
 
 export const metadata: Metadata = {
   title: "Keshier Jan Pialan | IT Graduate Portfolio",        // [REPLACE] Your name
@@ -31,6 +34,14 @@ export default function RootLayout({
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>{children}</body>
+
+      <body>
+        <LoadingScreen />
+        <PixelCursor />
+        {children}
+        <ScrollToTop />
+      </body>
+
     </html>
   );
 }
