@@ -12,16 +12,16 @@ const BOOT_LINES = [
 ];
 
 export default function LoadingScreen() {
-  const [done, setDone] = useState(false);
-  const [lines, setLines] = useState<string[]>([]);
+  const [done, setDone]       = useState(false);
+  const [lines, setLines]     = useState<string[]>([]);
   const [progress, setProgress] = useState(0);
   const [fadeOut, setFadeOut] = useState(false);
 
-  const screenRef = useRef<HTMLDivElement>(null);
-  const logoRef = useRef<HTMLDivElement>(null);
-  const termRef = useRef<HTMLDivElement>(null);
+  const screenRef  = useRef<HTMLDivElement>(null);
+  const logoRef    = useRef<HTMLDivElement>(null);
+  const termRef    = useRef<HTMLDivElement>(null);
   const barFillRef = useRef<HTMLDivElement>(null);
-  const barPctRef = useRef<HTMLSpanElement>(null);
+  const barPctRef  = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     if (sessionStorage.getItem("booted")) {
@@ -29,34 +29,41 @@ export default function LoadingScreen() {
       return;
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let animeInstance: any = null;
 
     async function runBootSequence() {
-      // Anime.js v4 uses named exports
+      // Anime.js v4 — named exports, animate(target, params) signature
       const { animate } = await import("animejs");
 
-      // ── 1. LOGO flicker-in ──────────────────────────────────────────
+      // ── TIMING CONSTANTS ────────────────────────────────────────────
+      const CHAR_SPEED       = 25;  // ms per char for normal lines (was 38)
+      const CHAR_SPEED_READY = 80;  // ms per char for "READY."    (was 120)
+      const LINE_PAUSE       = 140; // ms between lines             (was 220)
+      const READY_PAUSE      = 300; // ms pause after "READY."      (was 500)
+
+      // ── 1. LOGO flicker-in (400ms, was 600ms) ───────────────────────
       if (logoRef.current) {
-        // v4: animate(targets, parameters)
         animeInstance = animate(logoRef.current, {
-          opacity: [0, 0.2, 0, 0.6, 0, 1],
-          duration: 600,
-          easing: "steps(6)",
+          opacity:  [0, 0.2, 0, 0.6, 0, 1],
+          duration: 400,
+          easing:   "steps(6)",
         });
-        // v4 uses .thenable or you can simply await the instance
         await animeInstance;
       }
 
       // ── 2. TYPE each boot line, then advance progress bar ──────────
       for (let i = 0; i < BOOT_LINES.length; i++) {
         const lineText = BOOT_LINES[i];
-        const isReady = lineText === "READY.";
+        const isReady  = lineText === "READY.";
 
+        // Push an empty string first so the <p> exists in the DOM
         await new Promise<void>((resolve) => {
           setLines((prev) => [...prev, ""]);
           requestAnimationFrame(() => requestAnimationFrame(() => resolve()));
         });
 
+        // Animate each character one-by-one
         await new Promise<void>((resolve) => {
           let charIndex = 0;
           const charInterval = setInterval(() => {
@@ -71,47 +78,47 @@ export default function LoadingScreen() {
               clearInterval(charInterval);
               resolve();
             }
-          }, isReady ? 120 : 38);
+          }, isReady ? CHAR_SPEED_READY : CHAR_SPEED);
         });
 
+        // Advance progress bar
         const targetPct = Math.round(((i + 1) / BOOT_LINES.length) * 100);
         if (barFillRef.current && barPctRef.current) {
           const obj = { value: progress };
           animate(obj, {
-            value: targetPct,
-            duration: 280,
-            easing: "steps(8)",
-            onUpdate() { // Note: 'update' is often 'onUpdate' in stricter v4 types
-              const v = Math.round(obj.value);
-              setProgress(v);
+            value:    targetPct,
+            duration: 200,
+            easing:   "steps(6)",
+            onUpdate() {
+              setProgress(Math.round(obj.value));
             },
           });
         }
 
-        await new Promise((r) => setTimeout(r, isReady ? 500 : 220));
+        await new Promise((r) => setTimeout(r, isReady ? READY_PAUSE : LINE_PAUSE));
       }
 
-      // ── 3. "READY." yellow pulse ─────────────────────────────────────
+      // ── 3. "READY." yellow pulse (350ms, was 500ms) ──────────────────
       const readyEl = termRef.current?.querySelector<HTMLElement>(
         `.${styles.lineReady}`
       );
       if (readyEl) {
         await animate(readyEl, {
-          color: ["#3fbcb4", "#f7d51d", "#3fbcb4"],
-          duration: 500,
-          easing: "steps(4)",
+          color:    ["#3fbcb4", "#f7d51d", "#3fbcb4"],
+          duration: 350,
+          easing:   "steps(4)",
         });
       }
 
-      // ── 4. Fade out entire screen ────────────────────────────────────
-      await new Promise((r) => setTimeout(r, 200));
+      // ── 4. Fade out (150ms pause + 400ms fade, was 200ms + 500ms) ────
+      await new Promise((r) => setTimeout(r, 150));
       setFadeOut(true);
 
       if (screenRef.current) {
         await animate(screenRef.current, {
-          opacity: [1, 0],
-          duration: 500,
-          easing: "steps(5)",
+          opacity:  [1, 0],
+          duration: 400,
+          easing:   "steps(4)",
         });
       }
 
@@ -122,10 +129,9 @@ export default function LoadingScreen() {
     runBootSequence();
 
     return () => {
-      if (animeInstance && typeof animeInstance.pause === "function") {
-        animeInstance.pause();
-      }
+      animeInstance?.pause();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (done) return null;
@@ -136,17 +142,20 @@ export default function LoadingScreen() {
       className={`${styles.screen} ${fadeOut ? styles.fadeOut : ""}`}
     >
       <div className={styles.inner}>
+
+        {/* Pixel logo */}
         <div ref={logoRef} className={styles.logo} style={{ opacity: 0 }}>
           <span className={styles.bracket}>[</span>
           <span className={styles.logoText}>PORTFOLIO.EXE</span>
           <span className={styles.bracket}>]</span>
         </div>
 
+        {/* Boot lines */}
         <div ref={termRef} className={styles.terminal}>
           {lines.map((text, i) => {
-            const isReady = BOOT_LINES[i] === "READY.";
+            const isReady    = BOOT_LINES[i] === "READY.";
             const isLastLine = i === lines.length - 1;
-            const isTyping = text.length < (BOOT_LINES[i]?.length || 0);
+            const isTyping   = text.length < BOOT_LINES[i]?.length;
 
             return (
               <p
@@ -163,6 +172,7 @@ export default function LoadingScreen() {
           })}
         </div>
 
+        {/* Progress bar */}
         <div className={styles.barWrap}>
           <div className={styles.barTrack}>
             <div
@@ -175,6 +185,7 @@ export default function LoadingScreen() {
             {progress}%
           </span>
         </div>
+
       </div>
     </div>
   );
