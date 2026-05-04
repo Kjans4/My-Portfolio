@@ -149,8 +149,33 @@
   border-color: var(--color-accent);
   color: var(--color-accent);
 }
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card:hover {
+    transform: none;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .cardTitle {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cardBody {
+    padding: var(--space-3);
+  }
+
+  .cardLinks {
+    flex-wrap: wrap;
+  }
+}
+
 /* --- STAGGER REVEAL --- */
-/* Initial hidden state — Anime.js overrides on scroll-into-view */
 .revealItem {
   opacity: 0;
 }

@@ -172,3 +172,22 @@
     grid-template-columns: 1fr;
   }
 }
+@media (max-width: 480px) {
+  .infoBio {
+    font-size: 18px;
+  }
+
+  .submitBtn {
+    width: 100%;
+    text-align: center;
+    font-size: 7px;
+  }
+
+  .successText {
+    font-size: 9px;
+  }
+
+  .field {
+    padding: var(--space-2);
+  }
+}

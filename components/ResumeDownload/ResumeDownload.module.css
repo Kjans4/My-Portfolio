@@ -82,3 +82,25 @@
     display: none;
   }
 }
+@media (max-width: 480px) {
+  .inner {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .title {
+    font-size: 12px;
+  }
+
+  .downloadBtn {
+    font-size: 7px;
+    padding: var(--space-2) var(--space-4);
+    width: 100%;
+    text-align: center;
+  }
+
+  .sub,
+  .note {
+    font-size: 16px;
+  }
+}

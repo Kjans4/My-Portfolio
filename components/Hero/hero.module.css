@@ -42,7 +42,6 @@
   background: var(--color-surface);
   position: relative;
   box-shadow: 6px 6px 0 var(--color-border);
-  /* opacity starts at 0 — Anime.js drops it in */
 }
 
 .avatarPlaceholder {
@@ -60,13 +59,6 @@
   border-top: 2px solid var(--color-border);
   background: var(--color-surface-alt);
   letter-spacing: 2px;
-  min-height: 22px; /* prevent layout jump while typing */
-}
-
-/* Blinking cursor inside the avatar label while typing */
-.labelCursor {
-  animation: blink 0.6s steps(1) infinite;
-  color: var(--color-primary);
 }
 
 /* --- STAT BOX --- */
@@ -88,7 +80,6 @@
   font-family: var(--font-pixel);
   font-size: 6px;
   color: var(--color-text-muted);
-  /* opacity driven by React state + Anime.js stagger */
 }
 
 .statVal {
@@ -105,13 +96,11 @@
 .xpFill {
   height: 100%;
   background: var(--color-teal);
-  /* width driven by React state — Anime.js steps it up */
 }
 
 /* --- TEXT --- */
 .textContent {
   flex: 1;
-  /* opacity starts at 0 — Anime.js slides it in last */
 }
 
 .greeting {
@@ -228,12 +217,6 @@
   color: var(--color-border-bright);
 }
 
-/* --- ANIMATIONS --- */
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
-}
-
 /* --- RESPONSIVE --- */
 @media (max-width: 768px) {
   .inner {
@@ -249,5 +232,39 @@
   .actions,
   .socials {
     justify-content: center;
+  }
+}
+@media (max-width: 480px) {
+  .name {
+    font-size: 13px;
+  }
+
+  .avatarFrame {
+    width: 130px;
+  }
+
+  .statBox {
+    width: 130px;
+  }
+
+  .greeting {
+    font-size: 6px;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    font-size: 6px;
+    padding: var(--space-2) var(--space-3);
+    width: 100%;
+    text-align: center;
+  }
+
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .typewriter {
+    font-size: 7px;
   }
 }

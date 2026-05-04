@@ -199,3 +199,24 @@
     grid-template-columns: 1fr;
   }
 }
+@media (max-width: 480px) {
+  .bioCard {
+    padding: var(--space-4);
+  }
+
+  .bioText {
+    font-size: 18px;
+  }
+
+  .eduDegree {
+    font-size: 17px;
+  }
+
+  .eduSchool {
+    font-size: 7px;
+  }
+
+  .timelineCol {
+    padding-left: 0;
+  }
+}

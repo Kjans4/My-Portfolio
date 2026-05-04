@@ -65,6 +65,40 @@
   letter-spacing: 1px;
   text-align: center;
 }
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .grid {
+    gap: var(--space-2);
+  }
+
+  .techCard {
+    min-width: 80px;
+    padding: var(--space-3) var(--space-4);
+  }
+
+  .techCard:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-2);
+  }
+
+  .techCard {
+    min-width: unset;
+    padding: var(--space-3);
+  }
+
+  .techName {
+    font-size: 5px;
+  }
+}
+
 /* --- STAGGER REVEAL --- */
 .revealItem {
   opacity: 0;

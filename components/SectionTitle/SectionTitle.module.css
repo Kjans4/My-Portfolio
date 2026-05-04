@@ -39,3 +39,20 @@
 
 /* .lineReady is toggled by React but needs no extra styles —
    Anime.js drives scaleX directly on the element */
+
+/* --- RESPONSIVE --- */
+@media (max-width: 480px) {
+  .titleRow {
+    gap: var(--space-2);
+  }
+
+  .title {
+    font-size: 9px !important;
+    white-space: normal;
+    line-height: 1.8;
+  }
+
+  .line {
+    display: none;
+  }
+}

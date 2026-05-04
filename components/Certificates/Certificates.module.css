@@ -127,6 +127,42 @@
   border-color: var(--color-primary);
   color: var(--color-primary);
 }
+/* --- RESPONSIVE --- */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card:hover {
+    transform: none;
+    box-shadow: var(--shadow-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .cardBody {
+    padding: var(--space-3);
+  }
+
+  .badgeArea {
+    padding: var(--space-4);
+  }
+
+  .badgePlaceholder {
+    width: 64px;
+    height: 64px;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .downloadBtn,
+  .verifyBtn {
+    text-align: center;
+  }
+}
+
 /* --- STAGGER REVEAL --- */
 .revealItem {
   opacity: 0;
