@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useSound } from "@/context/SoundContext";
 import styles from "./navbar.module.css";
 
 const navLinks = [
@@ -12,8 +13,9 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled]   = useState(false);
+  const [menuOpen, setMenuOpen]   = useState(false);
+  const { muted, toggleMute }     = useSound();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -39,14 +41,27 @@ export default function Navbar() {
         ))}
       </ul>
 
-      {/* Mobile hamburger */}
-      <button
-        className={styles.hamburger}
-        onClick={() => setMenuOpen(!menuOpen)}
-        aria-label="Toggle menu"
-      >
-        <span /><span /><span />
-      </button>
+      {/* Right side controls */}
+      <div className={styles.controls}>
+        {/* Sound toggle */}
+        <button
+          className={styles.soundBtn}
+          onClick={toggleMute}
+          aria-label={muted ? "Enable sound" : "Disable sound"}
+          title={muted ? "[ SOUND: OFF ]" : "[ SOUND: ON ]"}
+        >
+          {muted ? "🔇" : "🔊"}
+        </button>
+
+        {/* Mobile hamburger */}
+        <button
+          className={styles.hamburger}
+          onClick={() => setMenuOpen(!menuOpen)}
+          aria-label="Toggle menu"
+        >
+          <span /><span /><span />
+        </button>
+      </div>
 
       {menuOpen && (
         <ul className={styles.mobileMenu}>

@@ -102,3 +102,28 @@
     display: flex;
   }
 }
+/* --- CONTROLS (sound + hamburger grouped) --- */
+.controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+/* --- SOUND TOGGLE --- */
+.soundBtn {
+  font-size: 14px;
+  line-height: 1;
+  padding: var(--space-1) var(--space-2);
+  background: transparent;
+  border: 2px solid var(--color-border);
+  color: var(--color-text-muted);
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.soundBtn:hover {
+  border-color: var(--color-primary);
+  transform: translate(-1px, -1px);
+}
