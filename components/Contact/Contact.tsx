@@ -46,7 +46,7 @@ export default function Contact() {
                 <p className={styles.successSub}>Thanks! I&apos;ll reply soon.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className={styles.form} suppressHydrationWarning>
+              <form onSubmit={handleSubmit} className={styles.form}>
                 <div className={styles.formRow}>
                   <div className={`${styles.field} ${focused === "name" ? styles.fieldFocused : ""}`}>
                     <label className={styles.label} htmlFor="name">NAME</label>
@@ -55,8 +55,8 @@ export default function Contact() {
                       name="name"
                       type="text"
                       required
-                      autoComplete="off"
                       placeholder="John Doe"
+                      suppressHydrationWarning
                       className={styles.input}
                       onFocus={() => setFocused("name")}
                       onBlur={() => setFocused(null)}
@@ -71,8 +71,8 @@ export default function Contact() {
                       name="email"
                       type="email"
                       required
-                      autoComplete="off"
                       placeholder="johndoe@email.com"
+                      suppressHydrationWarning
                       className={styles.input}
                       onFocus={() => setFocused("email")}
                       onBlur={() => setFocused(null)}
@@ -87,8 +87,8 @@ export default function Contact() {
                     id="subject"
                     name="subject"
                     type="text"
-                    autoComplete="off"
                     placeholder="Project proposal / Job offer / Hello!"
+                    suppressHydrationWarning
                     className={styles.input}
                     onFocus={() => setFocused("subject")}
                     onBlur={() => setFocused(null)}
@@ -102,8 +102,8 @@ export default function Contact() {
                     name="message"
                     required
                     rows={5}
-                    autoComplete="off"
                     placeholder="Type your message here..."
+                    suppressHydrationWarning
                     className={styles.textarea}
                     onFocus={() => setFocused("message")}
                     onBlur={() => setFocused(null)}
@@ -114,6 +114,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={state.submitting}
+                  suppressHydrationWarning
                   className={styles.submitBtn}
                 >
                   {state.submitting ? "[ SENDING... ]" : "[ SEND MESSAGE ]"}
