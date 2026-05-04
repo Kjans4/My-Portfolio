@@ -8,8 +8,8 @@ import styles from "./navbar.module.css";
 const navLinks = [
   { label: "ABOUT",    href: "#about",    icon: "◈" },
   { label: "PROJECTS", href: "#projects", icon: "◈" },
-  { label: "CERTS",    href: "#certs",    icon: "◈" },
   { label: "STACK",    href: "#stack",    icon: "◈" },
+  { label: "CERTS",    href: "#certs",    icon: "◈" },
   { label: "CONTACT",  href: "#contact",  icon: "◈" },
 ];
 
@@ -84,6 +84,7 @@ export default function Navbar() {
             className={styles.soundBtn}
             onClick={toggleMute}
             aria-label={muted ? "Enable sound" : "Disable sound"}
+            suppressHydrationWarning
           >
             <span className={styles.soundIcon}>{muted ? "🔇" : "🔊"}</span>
             <span className={styles.soundLabel}>
@@ -107,6 +108,7 @@ export default function Navbar() {
             className={styles.mobileSoundBtn}
             onClick={toggleMute}
             aria-label={muted ? "Enable sound" : "Disable sound"}
+            suppressHydrationWarning
           >
             {muted ? "🔇" : "🔊"}
           </button>
@@ -114,6 +116,7 @@ export default function Navbar() {
             className={styles.hamburger}
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
+            suppressHydrationWarning
           >
             <span /><span /><span />
           </button>

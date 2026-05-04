@@ -46,7 +46,7 @@ export default function Contact() {
                 <p className={styles.successSub}>Thanks! I&apos;ll reply soon.</p>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className={styles.form}>
+              <form onSubmit={handleSubmit} className={styles.form} suppressHydrationWarning>
                 <div className={styles.formRow}>
                   <div className={`${styles.field} ${focused === "name" ? styles.fieldFocused : ""}`}>
                     <label className={styles.label} htmlFor="name">NAME</label>
@@ -55,6 +55,7 @@ export default function Contact() {
                       name="name"
                       type="text"
                       required
+                      autoComplete="off"
                       placeholder="John Doe"
                       className={styles.input}
                       onFocus={() => setFocused("name")}
@@ -70,6 +71,7 @@ export default function Contact() {
                       name="email"
                       type="email"
                       required
+                      autoComplete="off"
                       placeholder="johndoe@email.com"
                       className={styles.input}
                       onFocus={() => setFocused("email")}
@@ -85,6 +87,7 @@ export default function Contact() {
                     id="subject"
                     name="subject"
                     type="text"
+                    autoComplete="off"
                     placeholder="Project proposal / Job offer / Hello!"
                     className={styles.input}
                     onFocus={() => setFocused("subject")}
@@ -99,6 +102,7 @@ export default function Contact() {
                     name="message"
                     required
                     rows={5}
+                    autoComplete="off"
                     placeholder="Type your message here..."
                     className={styles.textarea}
                     onFocus={() => setFocused("message")}

@@ -7,12 +7,12 @@ import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
 import PixelSound from "@/components/PixelSound/PixelSound";
 
 export const metadata: Metadata = {
-  title: "Keshier Jan Pialan | IT Graduate Portfolio",        // [REPLACE] Your name
-  description: "Full-Stack Developer & IT Graduate based in Davao City, Philippines.", // [REPLACE]
+  title: "Keshier Jan Pialan | IT Graduate Portfolio",        
+  description: "Full-Stack Developer & IT Graduate based in Davao City, Philippines.",
   openGraph: {
     title: "Keshier Jan Pialan | Portfolio",
     description: "Full-Stack Developer & IT Graduate",
-    url: "https://keshierjanpilan.vercel.app",              // [REPLACE]
+    url: "https://keshierjanpilan.vercel.app",              
     siteName: "KeshierJan Portfolio",
     locale: "en_PH",
     type: "website",
