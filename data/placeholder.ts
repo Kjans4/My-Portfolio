@@ -81,12 +81,12 @@ export const projects = [
   },
   {
     id: 3,
-    title: "Python Inventory CLI",                 // [REPLACE]
+    title: "Python Inventory CLI",                 
     description: "Command-line inventory management tool with CRUD operations, CSV export, and low-stock alerts.", // [REPLACE]
     tags: ["Python", "CLI", "CSV"],
-    githubUrl: "https://github.com/juandelacruz/project-3", // [REPLACE]
+    githubUrl: "https://github.com/juandelacruz/project-3", 
     liveUrl: "",
-    thumbnail: "/images/projects/project-3.png",   // [REPLACE]
+    thumbnail: "/images/projects/project-3.png",   
     featured: false,
   },
   {
@@ -137,21 +137,21 @@ export const projects = [
 export const certificates = [
   {
     id: 1,
-    title: "Placeholder Certificate 1",            // [REPLACE] e.g. "AWS Cloud Practitioner"
-    issuer: "Issuing Organization",                // [REPLACE] e.g. "Amazon Web Services"
-    date: "January 2025",                          // [REPLACE]
-    credentialUrl: "",                             // [REPLACE] URL to verify online, or leave ""
-    pdfFile: "/certificates/certificate-1.pdf",   // [REPLACE] Put your PDF in /public/certificates/
-    badge: "/images/badges/badge-1.png",           // [REPLACE] or remove if no badge image
+    title: "JavaScript for Beginners",            
+    issuer: "SimpleLearn",                
+    date: "May , 2026",                          
+    credentialUrl: "https://simpli-web.app.link/e/RZJjDz5ZN2b",                             
+     pdfFile: "/certificates/10178095_7306280_1777701199979.pdf",  
+    badge: "images/javascript_for_beginners.png",
   },
   {
     id: 2,
-    title: "Placeholder Certificate 2",            // [REPLACE]
-    issuer: "Issuing Organization",                // [REPLACE]
-    date: "March 2024",                            // [REPLACE]
-    credentialUrl: "",
-    pdfFile: "/certificates/certificate-2.pdf",   // [REPLACE]
-    badge: "/images/badges/badge-2.png",           // [REPLACE]
+    title: "Introduction to SQL",            
+    issuer: "SimpleLearn",                
+    date: "Sept 17, 2",                            
+    credentialUrl: "https://simpli-web.app.link/e/q3tzLK1AN2b",
+    pdfFile: "/certificates/7380311_1726801705.pdf",   
+    badge: "/images/introduction_to_sql.png",           
   },
   {
     id: 3,
@@ -169,5 +169,7 @@ export const certificates = [
 // ----------------------------
 export const resume = {
   pdfFile: "/resume/resume.pdf",                   // [REPLACE] Put your PDF in /public/resume/
-  lastUpdated: "April 2025",                       // [REPLACE]
+  lastUpdated: "April 2025",                       // 
 };
+
+//Hello asdasdasd

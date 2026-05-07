@@ -17,44 +17,49 @@ export default function Certificates() {
         <SectionTitle title="CERTIFICATES" className={styles.sectionTitle} />
 
         <div ref={gridRef} className={styles.grid}>
-          {certificates.map((cert) => (
-            <div key={cert.id} className={`${styles.card} ${styles.revealItem}`}>
+          {certificates.map((cert) => {
+            const pdfSrc = cert.pdfFile + "#toolbar=0&navpanes=0&scrollbar=0";
+            return (
+              <div key={cert.id} className={`${styles.card} ${styles.revealItem}`}>
 
-              {/* Badge area */}
-              <div className={styles.badgeArea}>
-                <div className={styles.badgePlaceholder}>
-                  <span className={styles.badgeIcon}>🏅</span>
+                {/* PDF Preview */}
+                <div className={styles.pdfArea}>
+                  <iframe
+                    src={pdfSrc}
+                    className={styles.pdfFrame}
+                    title={cert.title}
+                  />
                 </div>
-              </div>
 
-              <div className={styles.cardBody}>
-                <h3 className={styles.certTitle}>{cert.title}</h3>
-                <p className={styles.certIssuer}>{cert.issuer}</p>
-                <p className={styles.certDate}>ISSUED: {cert.date.toUpperCase()}</p>
+                <div className={styles.cardBody}>
+                  <h3 className={styles.certTitle}>{cert.title}</h3>
+                  <p className={styles.certIssuer}>{cert.issuer}</p>
+                  <p className={styles.certDate}>ISSUED: {cert.date.toUpperCase()}</p>
 
-                <div className={styles.actions}>
-                  <a
-                    href={cert.pdfFile}
-                    download
-                    className={styles.downloadBtn}
-                  >
-                    [ ↓ DOWNLOAD PDF ]
-                  </a>
-                  {cert.credentialUrl && (
+                  <div className={styles.actions}>
                     <a
-                      href={cert.credentialUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={styles.verifyBtn}
+                      href={cert.pdfFile}
+                      download
+                      className={styles.downloadBtn}
                     >
-                      [ VERIFY ↗ ]
+                      [ ↓ DOWNLOAD PDF ]
                     </a>
-                  )}
+                    {cert.credentialUrl && (
+                      <a
+                        href={cert.credentialUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={styles.verifyBtn}
+                      >
+                        [ VERIFY ↗ ]
+                      </a>
+                    )}
+                  </div>
                 </div>
-              </div>
 
-            </div>
-          ))}
+              </div>
+            );
+          })}
         </div>
 
       </div>
