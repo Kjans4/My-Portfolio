@@ -71,12 +71,12 @@ export const projects = [
   },
   {
     id: 2,
-    title: "Student Information System",           // [REPLACE]
-    description: "A desktop application for managing student records, grades, and enrollment using C# and SQL Server.", // [REPLACE]
-    tags: ["C#", "SQL", "Windows Forms"],
-    githubUrl: "https://github.com/juandelacruz/project-2", // [REPLACE]
-    liveUrl: "",
-    thumbnail: "/images/projects/project-2.png",   // [REPLACE]
+    title: "Hours to Days",           // [REPLACE]
+    description: "A modern web app that calculates project completion dates based on total hours, daily work hours, and custom schedules. Perfect for students, freelancers, and project planners.", // [REPLACE]
+    tags: ["React Vite", "Firebase"],
+    githubUrl: "https://github.com/Kjans4/Hours-to-Days.git", 
+    liveUrl: "https://hours-2-days.vercel.app/",
+    thumbnail: "/images/hours2days.png",   
     featured: true,
   },
   {
