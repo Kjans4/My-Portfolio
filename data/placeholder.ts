@@ -61,12 +61,12 @@ export const techStack = [
 export const projects = [
   {
     id: 1,
-    title: "E-Commerce Web App",                   // [REPLACE]
-    description: "A full-stack online store with product listings, cart, and checkout. Built with Next.js and PostgreSQL.", // [REPLACE]
-    tags: ["Next.js", "React", "SQL"],
-    githubUrl: "https://github.com/juandelacruz/project-1", // [REPLACE]
-    liveUrl: "https://project-1.vercel.app",        // [REPLACE] or remove if no live link
-    thumbnail: "/images/projects/project-1.png",   // [REPLACE]
+    title: "Tic-Tac-Toe INFINITY",
+    description: "A persistent-state, rolling Tic-Tac-Toe game built with React and Vite. The game eliminates draws through a FIFO mechanics system and supports continuous play through an infinity loop between rounds. Features a Balatro-inspired visual theme with CRT scanlines, neon glows, and a full run-based progression system.!",
+    tags: ["Next.js", "React"],
+    githubUrl: "https://github.com/Kjans4/Tic-Tac-Toe-INFINITY.git", 
+    liveUrl: "https://tictactoe-infinity.vercel.app/",        
+    thumbnail: "/images/tictactoe.png",   
     featured: true,
   },
   {
