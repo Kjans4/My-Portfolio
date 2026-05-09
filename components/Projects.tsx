@@ -3,8 +3,8 @@
 import { useRef } from "react";
 import { projects } from "@/data/placeholder";
 import { useStaggerReveal } from "@/hooks/useStaggerReveal";
-import SectionTitle from "@/components/SectionTitle/SectionTitle";
-import styles from "./Projects.module.css";
+import SectionTitle from "./SectionTitle";
+import styles from "@/styles/Projects.module.css";
 
 export default function Projects() {
   const gridRef = useRef<HTMLDivElement>(null);
@@ -17,7 +17,7 @@ export default function Projects() {
         <SectionTitle title="PROJECTS" className={styles.sectionTitle} />
 
         <div ref={gridRef} className={styles.grid}>
-          {projects.map((project, i) => (
+          {projects.map((project: any, i: number) => (
             <div
               key={project.id}
               className={`${styles.card} ${project.featured ? styles.featured : ""} ${styles.revealItem}`}
@@ -39,7 +39,7 @@ export default function Projects() {
                 <p className={styles.cardDesc}>{project.description}</p>
 
                 <div className={styles.tagRow}>
-                  {project.tags.map((tag) => (
+                  {project.tags.map((tag: any) => (
                     <span key={tag} className={styles.tag}>{tag}</span>
                   ))}
                 </div>

@@ -1,8 +1,8 @@
 "use client";
 
 import { education, personal } from "@/data/placeholder";
-import SectionTitle from "@/components/SectionTitle/SectionTitle";
-import styles from "./Education.module.css";
+import SectionTitle from "@/components/SectionTitle";
+import styles from "@/styles/Education.module.css";
 
 export default function Education() {
   return (
@@ -47,7 +47,7 @@ export default function Education() {
           <div className={styles.timelineCol}>
             <p className={styles.bioLabel}>// EDUCATION</p>
             <div className={styles.timeline}>
-              {education.map((edu, i) => (
+              {education.map((edu: any, i: number) => (
                 <div key={i} className={styles.timelineItem}>
 
                   {/* Connector dot + line */}

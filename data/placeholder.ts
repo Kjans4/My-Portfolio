@@ -66,7 +66,7 @@ export const projects = [
     tags: ["Next.js", "React"],
     githubUrl: "https://github.com/Kjans4/Tic-Tac-Toe-INFINITY.git", 
     liveUrl: "https://tictactoe-infinity.vercel.app/",        
-    thumbnail: "/images/tictactoe.png",   
+    thumbnail: "./images/tictactoe.png",   
     featured: true,
   },
   {
@@ -76,7 +76,7 @@ export const projects = [
     tags: ["React Vite", "Firebase"],
     githubUrl: "https://github.com/Kjans4/Hours-to-Days.git", 
     liveUrl: "https://hours-2-days.vercel.app/",
-    thumbnail: "/images/hours2days.png",   
+    thumbnail: "public/images/hours2days.png",   
     featured: true,
   },
   {

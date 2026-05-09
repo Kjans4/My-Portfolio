@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import "../styles/globals.css";
-import PixelCursor from "@/components/PixelCursor/PixelCursor";
+import PixelCursor from "@/components/PixelCursor";
 import { SoundProvider } from "@/context/SoundContext";
-import LoadingScreen from "@/components/LoadingScreen/LoadingScreen";
-import ScrollToTop from "@/components/ScrollToTop/ScrollToTop";
-import PixelSound from "@/components/PixelSound/PixelSound";
+import LoadingScreen from "@/components/LoadingScreen";
+import ScrollToTop from "@/components/ScrollToTop";
+import PixelSound from "@/components/PixelSound";
 
 export const metadata: Metadata = {
   title: "Keshier Jan Pialan | IT Graduate Portfolio",        

@@ -3,7 +3,7 @@
 
 import { useState, useEffect } from "react";
 import { useSound } from "@/context/SoundContext";
-import styles from "./navbar.module.css";
+import styles from "@/styles/navbar.module.css";
 
 const navLinks = [
   { label: "ABOUT",    href: "#about",    icon: "◈" },

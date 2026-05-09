@@ -1,10 +1,10 @@
 "use client";
 
-import { useState } from "react";
-import { useForm, ValidationError } from "@formspree/react";
 import { personal } from "@/data/placeholder";
-import SectionTitle from "@/components/SectionTitle/SectionTitle";
-import styles from "./Contact.module.css";
+import SectionTitle from "@/components/SectionTitle";
+import styles from "@/styles/Contact.module.css";
+import { useForm, ValidationError } from "@formspree/react";
+import { useState } from "react";
 
 export default function Contact() {
   // [REPLACE] "YOUR_FORM_ID" with your Formspree form ID from formspree.io

@@ -1,5 +1,5 @@
 import { resume, personal } from "@/data/placeholder";
-import styles from "./ResumeDownload.module.css";
+import styles from "../styles/ResumeDownload.module.css";
 
 export default function ResumeDownload() {
   return (

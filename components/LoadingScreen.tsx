@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import styles from "./LoadingScreen.module.css";
+import styles from "@/styles/LoadingScreen.module.css";
 
 const BOOT_LINES = [
   "INITIALIZING SYSTEM...",

@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
 import { personal } from "@/data/placeholder";
-import styles from "./hero.module.css";
+import styles from "@/styles/hero.module.css";
+import { useEffect, useRef, useState } from "react";
 
 const phrases = [
   "FULL-STACK DEVELOPER",

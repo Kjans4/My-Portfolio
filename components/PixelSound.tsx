@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useSound } from "@/context/SoundContext";
+import { useSound } from "@/context/SoundContext"; 
 
 // Elements that trigger the tick on hover
 const HOVER_SELECTORS = [
