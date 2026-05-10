@@ -1,0 +1,68 @@
+/* DonutCanvas.module.css */
+
+.canvas {
+  position: absolute;
+
+  /* Off-center right — cinematic, partially cropped on all sides */
+  top:  40%;
+  left: 1%;
+  transform: translateY(-50%);
+
+  /*
+    250% scale relative to the original ~110vh:
+    110vh × 2.5 = 275vh wide.
+    The 200×80 grid has a 2.5:1 aspect ratio,
+    so height = 275vh / 2.5 = 110vh — keeps the donut circular, not squashed.
+    In practice we let CSS handle the ratio via explicit w/h.
+  */
+  width:  310vh;
+  height: 150vh;
+
+  /* Semi-transparent as requested */
+  opacity: 0.48;
+
+  pointer-events: none;
+  z-index: 0;
+
+  /*
+    Radial mask — fades the donut at all edges so it bleeds
+    naturally into the dark background. Center of mask is
+    pulled slightly left (45%) so the visible bright core
+    lands in the right-of-center cinematic position.
+  */
+  mask-image: radial-gradient(
+    ellipse 65% 75% at 45% 50%,
+    black 30%,
+    rgba(0,0,0,0.6) 60%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 65% 75% at 45% 50%,
+    black 30%,
+    rgba(0,0,0,0.6) 60%,
+    transparent 100%
+  );
+}
+
+/* Mobile — smaller, centered, never overwhelming */
+@media (max-width: 768px) {
+  .canvas {
+    left:      50%;
+    transform: translate(-50%, -50%);
+    width:     200vw;
+    height:    80vw;
+    opacity:   0.28;
+    mask-image: radial-gradient(
+      ellipse 70% 70% at 50% 50%,
+      black 25%,
+      rgba(0,0,0,0.5) 55%,
+      transparent 100%
+    );
+    -webkit-mask-image: radial-gradient(
+      ellipse 70% 70% at 50% 50%,
+      black 25%,
+      rgba(0,0,0,0.5) 55%,
+      transparent 100%
+    );
+  }
+}

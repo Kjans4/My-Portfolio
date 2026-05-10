@@ -3,7 +3,8 @@
 
 import { useState, useEffect } from "react";
 import { useSound } from "@/context/SoundContext";
-import styles from "@/styles/navbar.module.css";
+import { useSpin } from "@/context/SpinContext";
+import styles from "../styles/navbar.module.css";
 
 const navLinks = [
   { label: "ABOUT",    href: "#about",    icon: "◈" },
@@ -17,8 +18,8 @@ export default function Navbar() {
   const [activeSection, setActiveSection] = useState("about");
   const [menuOpen, setMenuOpen]           = useState(false);
   const { muted, toggleMute }             = useSound();
+  const { spinSpeed, toggleSpin }         = useSpin();
 
-  // Track active section via IntersectionObserver
   useEffect(() => {
     const sectionIds = navLinks.map((l) => l.href.replace("#", ""));
     const observers: IntersectionObserver[] = [];
@@ -78,8 +79,22 @@ export default function Navbar() {
           })}
         </ul>
 
-        {/* Bottom — sound toggle */}
+        {/* Bottom — sound + spin toggles */}
         <div className={styles.bottom}>
+          {/* Spin speed toggle */}
+          <button
+            className={styles.soundBtn}
+            onClick={toggleSpin}
+            aria-label={spinSpeed === "fast" ? "Slow down donut" : "Speed up donut"}
+            suppressHydrationWarning
+          >
+            <span className={styles.soundIcon}>◎</span>
+            <span className={styles.soundLabel}>
+              {spinSpeed === "fast" ? "SPIN: FAST" : "SPIN: SLOW"}
+            </span>
+          </button>
+
+          {/* Sound toggle */}
           <button
             className={styles.soundBtn}
             onClick={toggleMute}
@@ -123,7 +138,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile dropdown menu */}
+      {/* Mobile dropdown */}
       {menuOpen && (
         <ul className={styles.mobileMenu}>
           {navLinks.map((link) => {

@@ -1,8 +1,9 @@
 "use client";
 
-import { personal } from "@/data/placeholder";
-import styles from "@/styles/hero.module.css";
 import { useEffect, useRef, useState } from "react";
+import { personal } from "@/data/placeholder";
+import DonutCanvas from "./DonutCanvas";
+import styles from "../styles/hero.module.css";
 
 const phrases = [
   "FULL-STACK DEVELOPER",
@@ -14,24 +15,24 @@ const phrases = [
 const AVATAR_LABEL = "PLAYER 1";
 
 export default function Hero() {
-  // ── Typewriter state (unchanged) ──────────────────────────────────
-  const [phraseIndex, setPhraseIndex]   = useState(0);
-  const [displayed, setDisplayed]       = useState("");
-  const [deleting, setDeleting]         = useState(false);
+  // ── Typewriter state ───────────────────────────────────────────────
+  const [phraseIndex, setPhraseIndex] = useState(0);
+  const [displayed, setDisplayed]     = useState("");
+  const [deleting, setDeleting]       = useState(false);
 
-  // ── Entrance animation state ──────────────────────────────────────
+  // ── Entrance animation state ───────────────────────────────────────
   const [lvlDisplay, setLvlDisplay]     = useState("00");
   const [xpWidth, setXpWidth]           = useState(0);
   const [labelText, setLabelText]       = useState("");
   const [statsVisible, setStatsVisible] = useState(false);
 
-  // ── Refs ──────────────────────────────────────────────────────────
-  const avatarFrameRef  = useRef<HTMLDivElement>(null);
-  const statBoxRef      = useRef<HTMLDivElement>(null);
-  const textContentRef  = useRef<HTMLDivElement>(null);
-  const statRowsRef     = useRef<HTMLDivElement[]>([]);
+  // ── Refs ───────────────────────────────────────────────────────────
+  const avatarFrameRef = useRef<HTMLDivElement>(null);
+  const statBoxRef     = useRef<HTMLDivElement>(null);
+  const textContentRef = useRef<HTMLDivElement>(null);
+  const statRowsRef    = useRef<HTMLDivElement[]>([]);
 
-  // ── Typewriter effect (unchanged) ─────────────────────────────────
+  // ── Typewriter ─────────────────────────────────────────────────────
   useEffect(() => {
     const current = phrases[phraseIndex];
     let timeout: ReturnType<typeof setTimeout>;
@@ -50,15 +51,12 @@ export default function Hero() {
     return () => clearTimeout(timeout);
   }, [displayed, deleting, phraseIndex]);
 
-  // ── Entrance animation sequence ───────────────────────────────────
+  // ── Entrance animation ─────────────────────────────────────────────
   useEffect(() => {
     async function runEntrance() {
       const { animate, stagger } = await import("animejs");
-
-      // Short delay so page paint settles first
       await new Promise((r) => setTimeout(r, 120));
 
-      // ── 1. Avatar frame spawns in ──────────────────────────────────
       if (avatarFrameRef.current) {
         await animate(avatarFrameRef.current, {
           opacity:    [0, 1],
@@ -68,7 +66,6 @@ export default function Hero() {
         });
       }
 
-      // ── 2. "PLAYER 1" label types in ──────────────────────────────
       await new Promise<void>((resolve) => {
         let i = 0;
         const iv = setInterval(() => {
@@ -84,9 +81,7 @@ export default function Hero() {
 
       await new Promise((r) => setTimeout(r, 100));
 
-      // ── 3. Stat rows flash in staggered ───────────────────────────
       setStatsVisible(true);
-      // Wait one frame for React to render the rows
       await new Promise<void>((r) =>
         requestAnimationFrame(() => requestAnimationFrame(() => r()))
       );
@@ -103,31 +98,20 @@ export default function Hero() {
 
       await new Promise((r) => setTimeout(r, 80));
 
-      // ── 4. LVL counts up 00 → 04 ─────────────────────────────────
       const lvlObj = { val: 0 };
       await animate(lvlObj, {
-        val:      4,
-        duration: 400,
-        easing:   "steps(4)",
-        onUpdate() {
-          setLvlDisplay(String(Math.round(lvlObj.val)).padStart(2, "0"));
-        },
+        val: 4, duration: 400, easing: "steps(4)",
+        onUpdate() { setLvlDisplay(String(Math.round(lvlObj.val)).padStart(2, "0")); },
       });
 
-      // ── 5. XP bar fills 0 → 72 ───────────────────────────────────
       const xpObj = { val: 0 };
       await animate(xpObj, {
-        val:      72,
-        duration: 600,
-        easing:   "steps(10)",
-        onUpdate() {
-          setXpWidth(Math.round(xpObj.val));
-        },
+        val: 72, duration: 600, easing: "steps(10)",
+        onUpdate() { setXpWidth(Math.round(xpObj.val)); },
       });
 
       await new Promise((r) => setTimeout(r, 100));
 
-      // ── 6. Text content slides in from right ──────────────────────
       if (textContentRef.current) {
         await animate(textContentRef.current, {
           opacity:    [0, 1],
@@ -143,13 +127,15 @@ export default function Hero() {
 
   return (
     <section className={styles.hero} id="about">
-      <div className="page-wrapper">
+
+      {/* ── Spinning ASCII donut — background layer ── */}
+      <DonutCanvas />
+
+      <div className="page-wrapper" style={{ position: "relative", zIndex: 1 }}>
         <div className={styles.inner}>
 
           {/* ── Avatar col ── */}
           <div className={styles.avatarWrap}>
-
-            {/* Frame — starts invisible, Anime drops it in */}
             <div
               ref={avatarFrameRef}
               className={styles.avatarFrame}
@@ -178,7 +164,6 @@ export default function Hero() {
                 </svg>
               </div>
 
-              {/* Label types in via state */}
               <div className={styles.avatarLabel}>
                 {labelText}
                 {labelText.length < AVATAR_LABEL.length && (
@@ -187,9 +172,7 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Stat box — rows hidden until statsVisible */}
             <div ref={statBoxRef} className={styles.statBox}>
-
               <div
                 className={styles.statRow}
                 ref={(el) => { if (el) statRowsRef.current[0] = el; }}
@@ -218,11 +201,10 @@ export default function Hero() {
                 <span>CLASS</span>
                 <span className={styles.statVal}>DEV</span>
               </div>
-
             </div>
           </div>
 
-          {/* ── Text content — starts invisible, slides in last ── */}
+          {/* ── Text content ── */}
           <div
             ref={textContentRef}
             className={styles.textContent}
@@ -246,22 +228,20 @@ export default function Hero() {
             </div>
 
             <div className={styles.socials}>
-              <a href={personal.github} target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-                GH
-              </a>
+              <a href={personal.github} target="_blank" rel="noopener noreferrer" className={styles.socialLink}>GH</a>
               <span className={styles.divider}>//</span>
-              <a href={personal.linkedin} target="_blank" rel="noopener noreferrer" className={styles.socialLink}>
-                LI
-              </a>
+              <a href={personal.linkedin} target="_blank" rel="noopener noreferrer" className={styles.socialLink}>LI</a>
               <span className={styles.divider}>//</span>
-              <a href={`mailto:${personal.email}`} className={styles.socialLink}>
-                ML
-              </a>
+              <a href={`mailto:${personal.email}`} className={styles.socialLink}>ML</a>
             </div>
           </div>
 
         </div>
       </div>
+
+      {/* ── Scroll snap sentinel — invisible, sits at bottom of hero ── */}
+      <div className={styles.snapSentinel} aria-hidden="true" />
+
     </section>
   );
 }
