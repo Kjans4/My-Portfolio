@@ -7,9 +7,28 @@ import { useStaggerReveal } from "@/hooks/useStaggerReveal";
 import SectionTitle from "./SectionTitle";
 import styles from "../styles/TechStack.module.css";
 
-const categories = ["Frontend", "Backend", "Database"];
+const MAX_LEVEL = 10;
+const categories = ["Frontend", "Backend", "Database", "Tools", "AI"];
 
-// Each category grid gets its own stagger reveal
+function MasteryBar({ level }: { level: number }) {
+  const pct = (level / MAX_LEVEL) * 100;
+
+  return (
+    <div className={styles.masteryWrap}>
+      <div className={styles.masteryRow}>
+        <span className={styles.masteryLabel}>LVL</span>
+        <span className={styles.masteryNum}>
+          {String(level).padStart(2, "0")}
+          <span className={styles.masteryMax}>/10</span>
+        </span>
+      </div>
+      <div className={styles.xpTrack}>
+        <div className={styles.xpFill} style={{ width: `${pct}%` }} />
+      </div>
+    </div>
+  );
+}
+
 function CategoryBlock({ cat }: { cat: string }) {
   const gridRef = useRef<HTMLDivElement>(null);
   useStaggerReveal(gridRef, { staggerDelay: 80, duration: 240 });
@@ -32,6 +51,7 @@ function CategoryBlock({ cat }: { cat: string }) {
               />
             </div>
             <span className={styles.techName}>{tech.name}</span>
+            <MasteryBar level={tech.level} />
           </div>
         ))}
       </div>
@@ -43,13 +63,10 @@ export default function TechStack() {
   return (
     <section className="section" id="stack">
       <div className="page-wrapper">
-
         <SectionTitle title="TECH STACK" className={styles.sectionTitle} />
-
         {categories.map((cat) => (
           <CategoryBlock key={cat} cat={cat} />
         ))}
-
       </div>
     </section>
   );

@@ -43,18 +43,30 @@ export const education = [
 // ----------------------------
 //  TECH STACK
 // ----------------------------
-export const techStack = [
-  { name: "React",       category: "Frontend",  icon: "/icons/react.svg"      },
-  { name: "Next.js",     category: "Frontend",  icon: "/icons/nextjs.svg"     },
-  { name: "HTML",        category: "Frontend",  icon: "/icons/html.svg"       },
-  { name: "CSS",         category: "Frontend",  icon: "/icons/css.svg"        },
-  { name: "JavaScript",  category: "Frontend",  icon: "/icons/javascript.svg" },
-  { name: "Python",      category: "Backend",   icon: "/icons/python.svg"     },
-  { name: "C#",          category: "Backend",   icon: "/icons/csharp.svg"     },
-  { name: "Java",        category: "Backend",   icon: "/icons/java.svg"       },
-  { name: "SQL",         category: "Database",  icon: "/icons/sql.svg"        },
-];
+// Replace your existing techStack array in data/placeholder.ts with this:
 
+export const techStack = [
+  // --- Frontend ---
+  { name: "React",      category: "Frontend", icon: "/icons/react.svg",      level: 4  },
+  { name: "Next.js",    category: "Frontend", icon: "/icons/nextjs.svg",     level: 3  },
+  { name: "HTML",       category: "Frontend", icon: "/icons/html.svg",       level: 4  },
+  { name: "CSS",        category: "Frontend", icon: "/icons/css.svg",        level: 3  },
+  { name: "JavaScript", category: "Frontend", icon: "/icons/javascript.svg", level: 3  },
+
+  // --- Backend ---
+  { name: "Python",     category: "Backend",  icon: "/icons/python.svg",     level: 1  },
+  { name: "C#",         category: "Backend",  icon: "/icons/csharp.svg",     level: 1  },
+  { name: "Java",       category: "Backend",  icon: "/icons/java.svg",       level: 1  },
+
+  // --- Database ---
+  { name: "SQL",        category: "Database", icon: "/icons/sql.svg",        level: 1  },
+
+  // --- Tools ---
+  { name: "VS Code",    category: "Tools",    icon: "/icons/vscode.svg",     level: 6  },
+
+  // --- AI ---
+  { name: "Claude",     category: "AI",       icon: "/icons/claude.svg",     level: 4  },
+];
 // ----------------------------
 //  PROJECTS (7 total)
 // ----------------------------
