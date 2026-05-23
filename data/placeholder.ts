@@ -167,13 +167,13 @@ export const certificates = [
   },
   {
     id: 3,
-    title: "Placeholder Certificate 3",                        // [REPLACE]
-    issuer: "Issuing Organization",                            // [REPLACE]
-    date: "June 2024",                                         // [REPLACE]
-    credentialUrl: "",
-    pdfFile: "/certificates/certificate-3.pdf",               // [REPLACE]
-    badge: "/images/badges/badge-3.png",                      // [REPLACE]
-  },
+    title: "Build Complete CMS Blog in PHP MySQL Bootstrap & PDO",
+    issuer: "Udemy",
+    date: "Dec 11, 2024",
+    credentialUrl: "https://ude.my/UC-332df7d6-d85d-4be8-ab65-32ae24459db0",
+    pdfFile: "/certificates/UC-332df7d6-d85d-4be8-ab65-32ae24459db0.pdf",
+    badge: "/images/badges/badge-3.png",
+},
 ];
 
 // ----------------------------

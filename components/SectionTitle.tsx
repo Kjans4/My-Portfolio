@@ -2,7 +2,7 @@
 
 import { useRef, useState, useCallback } from "react";
 import { useTitleReveal } from "@/hooks/useTitleReveal";
-import styles from "../styles/SectionTitle.module.css";
+import styles from "@/styles/SectionTitle.module.css";
 
 interface SectionTitleProps {
   title: string;
