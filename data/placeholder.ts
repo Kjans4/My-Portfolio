@@ -174,12 +174,30 @@ export const certificates = [
     pdfFile: "/certificates/UC-332df7d6-d85d-4be8-ab65-32ae24459db0.pdf",
     badge: "/images/badges/badge-3.png",
 },
+{
+    id: 4,
+    title: "Introduction to Front End Development",
+    issuer: "SimpleLearn",
+    date: "June 8, 2026",
+    credentialUrl: "https://simpli-web.app.link/e/1Ei23q0jN3b",                                        
+    pdfFile: "/certificates/10314744_10603832_1780893357205.pdf",
+    badge: "/images/badges/badge-frontend.png",              
+  },
+  {
+    id: 5,
+    title: "Python for Beginners",
+    issuer: "SimpleLearn",
+    date: "June 6 2026",
+    credentialUrl: "https://simpli-web.app.link/e/JS1ha9DlN3b",
+    pdfFile: "/certificates/10308021_10603832_1780710585395.pdf",              
+    badge: "/images/badges/badge-5.png",                     
+  },
 ];
 
 // ----------------------------
 //  RESUME / CV
 // ----------------------------
 export const resume = {
-  pdfFile: "/resume/resume.pdf",    // [REPLACE] Put your PDF in /public/resume/
-  lastUpdated: "April 2025",
+  pdfFile: "/resume/cv.pdf",
+  lastUpdated: "April 2026",
 };
