@@ -14,14 +14,14 @@ export default function ResumeDownload() {
           </div>
 
           <div className={styles.content}>
-            <p className={styles.label}>// RESUME & CV</p>
-            <h2 className={styles.title}>DOWNLOAD MY CV</h2>
+            <p className={styles.label}>// RESUME </p>
+            <h2 className={styles.title}>DOWNLOAD MY RESUME</h2>
             <p className={styles.sub}>
               Last updated: {resume.lastUpdated} &nbsp;|&nbsp; {personal.location}
             </p>
             <a
               href={resume.pdfFile}
-              download
+              download={'Keshier Jan Pialan-Resume.pdf'}
               className={styles.downloadBtn}
             >
               [ ↓ DOWNLOAD PDF ]

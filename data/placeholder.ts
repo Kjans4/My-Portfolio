@@ -52,11 +52,15 @@ export const techStack = [
   { name: "HTML",       category: "Frontend", icon: "/icons/html.svg",       level: 4  },
   { name: "CSS",        category: "Frontend", icon: "/icons/css.svg",        level: 3  },
   { name: "JavaScript", category: "Frontend", icon: "/icons/javascript.svg", level: 3  },
+  { name: "TypeScript",  category: "Frontend", icon: "/icons/typescript.svg", level: 2  },
+  { name: "Tailwind CSS", category: "Frontend", icon: "/icons/tailwind.svg",  level: 2  },
+  { name: "React Native", category: "Frontend", icon: "/icons/react-native.svg", level: 1  },
+  
 
   // --- Backend ---
   { name: "Python",     category: "Backend",  icon: "/icons/python.svg",     level: 1  },
   { name: "C#",         category: "Backend",  icon: "/icons/csharp.svg",     level: 1  },
-  { name: "Java",       category: "Backend",  icon: "/icons/java.svg",       level: 1  },
+
 
   // --- Database ---
   { name: "SQL",        category: "Database", icon: "/icons/sql.svg",        level: 1  },
@@ -93,54 +97,33 @@ export const projects = [
   },
   {
     id: 3,
-    title: "Python Inventory CLI",
-    description: "Command-line inventory management tool with CRUD operations, CSV export, and low-stock alerts.",
-    tags: ["Python", "CLI", "CSV"],
-    githubUrl: "https://github.com/juandelacruz/project-3", // [REPLACE]
+    title: "Infinity Dungeon",
+    description: "A fast-paced top-down arena rogue-like built with Next.js, TypeScript, and HTML5 Canvas. Fight through horde rooms, survive elite and boss encounters, collect gold, and build your character with stat upgrades, weapons, and charms — then descend deeper, harder, forever.",
+    tags: ["Next.js", "TypeScript", "Canvas"],
+    githubUrl: "https://github.com/Kjans4/infinity-dungeon.git", // [REPLACE]
     liveUrl: "",
     thumbnail: "/images/projects/project-3.png",            // [REPLACE]
     featured: false,
   },
   {
     id: 4,
-    title: "Portfolio Website",
-    description: "This very portfolio — built with Next.js, pixel RPG theme, and deployed on Vercel.",
+    title: "Inventory Management System",
+    description: "A modern web app for managing inventory with real-time updates, reporting, and user management.",
     tags: ["Next.js", "TypeScript", "CSS"],
-    githubUrl: "https://github.com/juandelacruz/portfolio",  // [REPLACE]
-    liveUrl: "https://juandelacruz.vercel.app",              // [REPLACE]
+  
     thumbnail: "/images/projects/project-4.png",             // [REPLACE]
     featured: true,
   },
   {
     id: 5,
-    title: "Java Library System",
-    description: "A library management system with book borrowing, return tracking, and member records built in Java.",
-    tags: ["Java", "OOP", "SQL"],
-    githubUrl: "https://github.com/juandelacruz/project-5", // [REPLACE]
-    liveUrl: "",
+    title: "Scrappix",
+    description: "AI-Powered Recycling and Repurposing for Filipino Households: Fostering Sustainable Habits and Economic Empowerment",
+    tags: ["Java", "AI", "SQL"],
+
     thumbnail: "/images/projects/project-5.png",            // [REPLACE]
-    featured: false,
-  },
-  {
-    id: 6,
-    title: "React Weather Dashboard",
-    description: "A weather app consuming OpenWeatherMap API with 5-day forecast, location search, and animated icons.",
-    tags: ["React", "API", "JavaScript"],
-    githubUrl: "https://github.com/juandelacruz/project-6", // [REPLACE]
-    liveUrl: "https://weather-app.vercel.app",              // [REPLACE]
-    thumbnail: "/images/projects/project-6.png",            // [REPLACE]
-    featured: false,
-  },
-  {
-    id: 7,
-    title: "Capstone: [Your Capstone Title]",               // [REPLACE]
-    description: "Placeholder description for your capstone project. Replace with your real capstone title, tech used, and what problem it solves.", // [REPLACE]
-    tags: ["React", "Python", "SQL"],                       // [REPLACE]
-    githubUrl: "https://github.com/juandelacruz/capstone",  // [REPLACE]
-    liveUrl: "",
-    thumbnail: "/images/projects/project-7.png",            // [REPLACE]
     featured: true,
   },
+  
 ];
 
 // ----------------------------
