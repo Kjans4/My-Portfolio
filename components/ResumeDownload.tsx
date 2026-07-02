@@ -21,7 +21,7 @@ export default function ResumeDownload() {
             </p>
             <a
               href={resume.pdfFile}
-              download={'Keshier Jan Pialan-Resume.pdf'}
+              download={'Keshier Jan Pialan Resume.pdf'}
               className={styles.downloadBtn}
             >
               [ ↓ DOWNLOAD PDF ]
