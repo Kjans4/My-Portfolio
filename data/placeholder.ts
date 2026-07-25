@@ -123,6 +123,15 @@ export const projects = [
     thumbnail: "/images/projects/project-5.png",            // [REPLACE]
     featured: true,
   },
+  {
+    id: 6,
+    title: "War on Board",
+    description: "A 3-slot, simultaneous-reveal strategy card game inspired by Gwent (The Witcher 3) — compact, read-heavy, bluff-driven combat between the player and an AI opponent.",
+    tags: ["next.js", "TypeScript", "CSS"],
+    featured: true,
+    githubUrl: "https://github.com/Kjans4/War-on-Board.git",
+    liveUrl: "https://waronboard.vercel.app/",
+  }
   
 ];
 
